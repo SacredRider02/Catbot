@@ -13,17 +13,28 @@ async def send_to_admin(dp):
 
 @dp.message_handler()
 async def greeting(message: Message):
-    if message.text.lower() == 'hello':
-        await bot.send_message(chat_id=message.from_user.id, text='Hello there, text me /help to see what can I do')
-    elif message.text == '/help':
-        await bot.send_message(chat_id=message.from_user.id, text='Here are my functions: \n/menu to order food;\n/bots to see a list of different chat bots\n/game to choose and play a game'
-                               '/game to choose and play a game')
-    elif message.text == '/menu':
-        await message.answer("Choose a food from menu", reply_markup=main_dishes)
-    elif message.text == 'Hamburger' or message.text == 'Kebab' or message.text == 'Shawrma' or message.text == 'Sushi':
+    x = message.text
+    if x.lower() == 'hello':
+        await bot.send_message(chat_id=message.from_user.id,
+                               text='Hello there, text me '
+                                    '/help to see what can I do')
+    elif x == '/help':
+        await bot.send_message(chat_id=message.from_user.id,
+                               text='Here are my functions: '
+                                    '\n/menu to order food;'
+                                    '\n/bots to see a '
+                                    'list of different chat bots'
+                                    '\n/game to choose and play a game'
+                                    '/game to choose and play a game')
+    elif x == '/menu':
+        await message.answer("Choose a food from menu",
+                             reply_markup=main_dishes)
+    elif x == 'Hamburger' or x == 'Kebab' or x == 'Shawrma' or x == 'Sushi':
         await message.answer(f"You choise {message.text}")
         await message.answer('Now choose a drink', reply_markup=drinks)
-    elif message.text == 'Coke' or message.text == 'Black tea' or message.text == 'Apple juice' or message.text == 'Green tea':
+    elif x == 'Coke' or x == 'Black tea':
+        await message.answer(f'You choise {message.text}')
+    elif x == 'Apple juice' or x == 'Green tea':
         await message.answer(f'You choise {message.text}')
     elif message.text == '/bots':
         await message.answer('Here are some fancy bots for groups:\n'
@@ -36,9 +47,13 @@ async def greeting(message: Message):
                              '@gif\n'
                              )
     elif message.text == '/game':
-        await message.answer('Choose the game you want to play', reply_markup=games)
+        await message.answer('Choose the game you want to play',
+                             reply_markup=games)
     else:
-        await bot.send_message(chat_id=message.from_user.id, text='Hello there, text me /help to see what can I do')
+        await bot.send_message(chat_id=message.from_user.id,
+                               text='Hello there, '
+                                    'text me /help to '
+                                    'see what can I do')
 
 
 @dp.callback_query_handler(text='lumberjack')
@@ -47,7 +62,8 @@ async def gaming_one(call: CallbackQuery):
     callback_data = call.data
     logging.info(f'call={callback_data}')
 
-    await call.message.answer(text='You choise Lumberjack!', reply_markup=lumberjack_keboard)
+    await call.message.answer(text='You choise Lumberjack!',
+                              reply_markup=lumberjack_keboard)
 
 
 @dp.callback_query_handler(text='corsairs')
@@ -56,4 +72,5 @@ async def gaming_two(call: CallbackQuery):
     callback_data = call.data
     logging.info(f'call={callback_data}')
 
-    await call.message.answer(text='You choise Corsairs!', reply_markup=corsairs_keyboard)
+    await call.message.answer(text='You choise Corsairs!',
+                              reply_markup=corsairs_keyboard)
