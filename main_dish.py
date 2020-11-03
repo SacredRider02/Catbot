@@ -6,7 +6,8 @@ main_dishes = ReplyKeyboardMarkup(
         [
             KeyboardButton(text='Hamburger'),
             KeyboardButton(text='Kebab')
-        ], [
+        ],
+        [
             KeyboardButton(text='Shawrma'),
             KeyboardButton(text='Sushi')
         ]
