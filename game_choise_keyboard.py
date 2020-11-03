@@ -4,8 +4,10 @@ from config import lumberjack_URL, corsairs_URL
 games = InlineKeyboardMarkup(
     inline_keyboard=[
         [
-            InlineKeyboardButton(text='Lumberjack', callback_data='lumberjack'),
-            InlineKeyboardButton(text='Corsairs', callback_data='corsairs')
+            InlineKeyboardButton(text='Lumberjack',
+                                 callback_data='lumberjack'),
+            InlineKeyboardButton(text='Corsairs',
+                                 callback_data='corsairs')
         ]
     ]
 )
