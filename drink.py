@@ -4,8 +4,7 @@ drinks = ReplyKeyboardMarkup(
     keyboard=[[
         KeyboardButton(text='Coke'),
         KeyboardButton(text='Black tea')
-    ],
-    [
+    ], [
         KeyboardButton(text='Apple juice'),
         KeyboardButton(text='Green tea')
     ]],
