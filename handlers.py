@@ -40,18 +40,20 @@ async def greeting(message: Message):
     else:
         await bot.send_message(chat_id=message.from_user.id, text='Hello there, text me /help to see what can I do')
 
+
 @dp.callback_query_handler(text='lumberjack')
-async def gaming_one(call:CallbackQuery):
-        await call.answer(60)
-        callback_data = call.data
-        logging.info(f'call={callback_data}')
-
-        await call.message.answer(text='You choise Lumberjack!', reply_markup=lumberjack_keboard)
-
-@dp.callback_query_handler(text='corsairs')
-async def gaming_two(call:CallbackQuery):
+async def gaming_one(call: CallbackQuery):
     await call.answer(60)
     callback_data = call.data
     logging.info(f'call={callback_data}')
 
-    await call.message.answer(text='You choise Corsairs!',reply_markup=corsairs_keyboard)
+    await call.message.answer(text='You choise Lumberjack!', reply_markup=lumberjack_keboard)
+
+
+@dp.callback_query_handler(text='corsairs')
+async def gaming_two(call: CallbackQuery):
+    await call.answer(60)
+    callback_data = call.data
+    logging.info(f'call={callback_data}')
+
+    await call.message.answer(text='You choise Corsairs!', reply_markup=corsairs_keyboard)
