@@ -1,3 +1,3 @@
 # Chatbot
-This is my first ever programm
-I'm Yashar Guzel.
+This is my first ever project.
+I'm Yasar Guzel.
